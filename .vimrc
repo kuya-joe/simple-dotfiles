@@ -13,18 +13,14 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sensible'
-Plugin 'rstacruz/vim-opinion'
-Plugin 'junegunn/goyo.vim'
-Plugin 'preservim/nerdtree'
+" Plugin 'preservim/nerdtree'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
+" Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -47,7 +43,34 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Using VImplug
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+" NERD tree will be loaded on the first invocation of NERDTreeToggle command
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+" wakatime developer coding metrics
+Plug 'wakatime/vim-wakatime'
+" Opinionated tpope vim config
+Plug 'tpope/vim-sensible'
+" Opinionated vim config from Rico Sta Cruz
 
+Plug 'rstacruz/vim-opinion'
+Plug 'junegunn/goyo.vim'
+
+" Other things.  I think these are good
+Plug 'tpope/vim-fugitive'
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+call plug#end()
+
+" Auto open NerdTREE if there is no file specified
 function! StartUp()
     if 0 == argc()
         NERDTree
