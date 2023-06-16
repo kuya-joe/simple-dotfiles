@@ -112,7 +112,7 @@ alias mycal="cat ~/me/cal.txt"
 
 # docker shortcuts
 alias ,dockr_run="docker-compose run --rm"
-alias ,gbr="git branch | grep '*'
+alias ,gbr="git branch | grep '*'"
 
 alias nano="vim"
 
