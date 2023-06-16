@@ -105,3 +105,19 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH=/Users/joehero/etc/bin:$PATH
 
+
+# macOS aliases
+alias cls='clear'
+alias mycal="cat ~/me/cal.txt"
+
+# docker shortcuts
+alias ,dockr_run="docker-compose run --rm"
+alias ,gbr="git branch | grep '*'
+
+alias nano="vim"
+
+# nify vim finder and fzf-tmux thing
+alias v='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
+
+# source aliases that cd to directories
+source ~/.project_aliases
